@@ -19,10 +19,5 @@ namespace XamarinLearningAPI
         {
             InitializeComponent();
         }
-        //private async void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    var button = (Button)sender;
-        //    await Navigation.PushAsync(new TodaySchedule());
-        //}   
     }
 }
