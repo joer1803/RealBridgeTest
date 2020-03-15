@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XamarinLearningAPI"
+             x:Name="FirstPage"
+             mc:Ignorable="d"
+             x:Class="XamarinLearningAPI.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <!--<Button Text="{Binding P3}" Clicked="Button_Clicked"/>-->
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+        <CollectionView ItemsSource="{Binding RadioChannels}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Text="{Binding Name}" Command="{Binding Source={x:Reference FirstPage}, Path=BindingContext.SelectChannel}" CommandParameter="{Binding Id}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>
